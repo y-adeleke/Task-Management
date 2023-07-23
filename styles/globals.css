@@ -2,26 +2,165 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@variants responsive {
+  .h-vh {
+    height: 100vh;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+footer {
+  height: auto;
+  background-color: #011020;
+}
+.shadow {
+  position: relative;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  -webkit-box-shadow: 5px 5px 15px 5px #fff;
+  box-shadow: 10px 5px 25px 45px #fff;
+}
+
+.background {
+  background-image: url(../public/pictures&svgs/background.svg);
+  /*clip-path: polygon(0 0, 100% 0, 100% 88%, 0% 100%);*/
+}
+
+.feature-bg {
+  background-image: url(../public/pictures&svgs/blob-haikei.svg);
+}
+.review-bg {
+  background-image: url(../public/pictures&svgs/reviewbg1.svg);
+  background-position: center;
+  background-size: cover;
+}
+
+.btn:hover,
+.btn:focus {
+  transform: scale(1.1) !important;
+}
+
+.glassmorphism {
+  margin: auto;
+  background-color: rgba(219, 211, 211, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+}
+
+.review-wrapper {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  height: auto;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #000, #3c486b);
+}
+
+.review-right,
+.review-left {
+  opacity: 0.8;
+  transform: scale(0.8);
+  margin: 0 5px;
+  width: 100%;
+  max-width: 100%;
+  min-height: 270px;
+  max-height: 270px;
+}
+
+.review-right {
+  right: -50px;
+  margin-left: 30px;
+}
+.review-left {
+  left: -50px;
+  margin-right: 30px;
+}
+
+.review-active {
+  z-index: 1;
+  transform: scale(1.2);
+  background: #3c486b;
+  width: 100%;
+  min-height: 270px;
+  max-height: 270px;
+}
+.slant-top {
+  clip-path: polygon(0 0, 100% 8%, 100% 100%, 0% 100%);
+}
+
+.slide-in {
+  opacity: 0;
+  transform: translateY(100%);
+  animation: slideIn 0.5s forwards;
+}
+
+.auth-page-side {
+  background-image: url(../public/pictures&svgs/circle-scatter-haikei.svg);
+  background-size: cover;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(15%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*Loading spinner*/
+.custom-loader {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 4px solid;
+  border-color: #ff3939 #0000 #3c486b;
+  animation: s1 0.5s infinite;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}
+
+@keyframes s1 {
+  to {
+    transform: rotate(0.5turn);
+  }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.bouncer-animation {
+  animation: bounce 2s ease-in-out infinite;
+  transition: all 0.5s linear;
+}
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
