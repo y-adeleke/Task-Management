@@ -16,52 +16,34 @@ const LoginPage = () => {
           </span>
         </Link>
         <div className="mt-12">
-          <h1 className="font-robotoSlab text-4xl text-cstColor-100">
-            Welcome Back!
-          </h1>
+          <h1 className="font-robotoSlab text-4xl text-cstColor-100">Welcome Back!</h1>
           <p className="text mt-2">Please log in to your account.</p>
           <div className="mt-14">
             <label htmlFor="email">Email</label>
             <br />
-            <InputEmailHelper
-              className="w-2/3 mb-6 mt-1 focus:border-cstColor-200"
-              id="email"
-            />
+            <InputEmailHelper className="w-2/3 mb-6 mt-1 focus:border-cstColor-200" id="email" />
             <br />
             <label htmlFor="password" className="">
               Password
             </label>{" "}
             <br />
-            <InputPasswordHelper
-              className="w-2/3 mb-4 mt-1 focus:border-cstColor-200"
-              id="password"
-            />
+            <InputPasswordHelper className="w-2/3 mb-4 mt-1 focus:border-cstColor-200" id="password" />
             <br />
             <div className="w-2/3 text-sm flex justify-between">
               <span>
-                <input
-                  type="checkbox"
-                  name="checkbox"
-                  id="checkbox"
-                  className="focus:ring-0 focus:ring-offset-0"
-                />
+                <input type="checkbox" name="checkbox" id="checkbox" className="focus:ring-0 focus:ring-offset-0" />
                 <label htmlFor="checkbox" className="ml-2">
                   Remember me
                 </label>
               </span>
               <span>
-                <Link
-                  href="/authentication/reset-password"
-                  className="text-cstColor-200 cursor-pointer hover:scale-105"
-                >
+                <Link href="/authentication/reset-password" className="text-cstColor-200 cursor-pointer hover:scale-105">
                   Forgot password?
                 </Link>
               </span>
             </div>
-            <Link href="/dashboard">
-              <ButtonCst className="w-2/3 my-6 bg-cstColor-100 text-white py-3">
-                Sign In
-              </ButtonCst>
+            <Link href="/user/dashboard">
+              <ButtonCst className="w-2/3 my-6 bg-cstColor-100 text-white py-3">Sign In</ButtonCst>
             </Link>
             <br />
             <ButtonCst className="w-2/3 my-2 border-2 border-cstColor-100 py-3 flex items-center justify-center">
@@ -69,21 +51,15 @@ const LoginPage = () => {
               <span className="ml-2">Sign In with Google</span>
             </ButtonCst>
             <p className="mt-4 w-2/3 text-center">
-              Don't have an account?{" "}
-              <Link
-                className="text-cstColor-200 cursor-pointer"
-                href="/authentication/signup"
-              >
+              Don&apost have an account?
+              <Link className="text-cstColor-200 cursor-pointer" href="/authentication/signup">
                 sign up
               </Link>
             </p>
           </div>
         </div>
         <div className="mt-auto">
-          <p>
-            By signing in, you agree to have read our data policy and agree to
-            the terms.
-          </p>
+          <p>By signing in, you agree to have read our data policy and agree to the terms.</p>
         </div>
       </div>
 

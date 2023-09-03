@@ -17,17 +17,12 @@ const SignUpComponent = () => {
           </span>
         </Link>
         <div className="mt-8">
-          <h1 className="font-robotoSlab text-4xl text-cstColor-100">
-            Get Started!
-          </h1>
+          <h1 className="font-robotoSlab text-4xl text-cstColor-100">Get Started!</h1>
           <p className="text mt-2">Create your account now.</p>
           <div className="mt-8">
             <label htmlFor="fullname">Full Name</label>
             <br />
-            <InputTextHelper
-              placeholder="Enter your full name"
-              className="w-2/3 mb-4 mt-1"
-            />
+            <InputTextHelper placeholder="Enter your full name" className="w-2/3 mb-4 mt-1" />
             <br />
             <label htmlFor="lastname">Email</label>
             <br />
@@ -38,9 +33,7 @@ const SignUpComponent = () => {
             <br />
             <label htmlFor="confirm-password">Confirm Passsword</label> <br />
             <InputPasswordHelper className="w-2/3 mb-4 mt-1" id="email" />
-            <ButtonCst className="w-2/3 my-6 bg-cstColor-100 text-white py-3">
-              Sign up
-            </ButtonCst>
+            <ButtonCst className="w-2/3 my-6 bg-cstColor-100 text-white py-3">Sign up</ButtonCst>
             <br />
             <ButtonCst className="w-2/3 my-2 border-2 border-cstColor-100 py-3 flex items-center justify-center">
               <FcGoogle className="text-2xl" />
@@ -48,20 +41,14 @@ const SignUpComponent = () => {
             </ButtonCst>
             <p className="mt-4 w-2/3 text-center">
               Already have an account?
-              <Link
-                href="/authentication"
-                className="text-cstColor-200 cursor-pointer ml-2"
-              >
+              <Link href="/authentication" className="text-cstColor-200 cursor-pointer ml-2">
                 sign in
               </Link>
             </p>
           </div>
         </div>
         <div className="mt-auto">
-          <p>
-            By signing up, you agree to have read our data policy and agree to
-            the terms.
-          </p>
+          <p>By signing up, you agree to have read our data policy and agree to the terms.</p>
         </div>
       </div>
 

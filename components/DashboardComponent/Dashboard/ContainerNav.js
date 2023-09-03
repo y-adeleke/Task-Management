@@ -3,7 +3,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 
 const ContainerNav = () => {
   return (
-    <div className="h-max bg-white border border-gray-100 w-full py-3 px-6 flex items-center font-montserrat justify-between">
+    <div className="h-16 bg-white border border-gray-100 w-full py-3 px-6 flex items-center font-montserrat justify-between">
       <div className="flex bg-gray-200 rounded-lg w-max h-8 ">
         <input
           type="text"
@@ -12,9 +12,7 @@ const ContainerNav = () => {
             placeholder-cstColor-500  focus:ring-0 focus:outline-none
             "
         />
-        <button className="bg-cstColor-100 rounded-md text-white px-3 cursor-pointer hover:scale-105 ">
-          Search
-        </button>
+        <button className="bg-cstColor-100 rounded-md text-white px-3 cursor-pointer hover:scale-105 ">Search</button>
       </div>
 
       <div className="flex text-sm text-white">

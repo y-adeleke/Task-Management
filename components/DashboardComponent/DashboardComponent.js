@@ -1,21 +1,16 @@
-import DashboardNavigation from "./Navigation/DashboardNavigation";
 import DashboardContainer from "./Dashboard/DashboardContainer";
 import dynamic from "next/dynamic";
 
-const ProfileDisplayer = dynamic(
-  () => import("./Dashboard/ProfileDisplayer.js"),
-  {
-    ssr: false,
-  }
-);
+const ProfileDisplayer = dynamic(() => import("./Dashboard/ProfileDisplayer.js"), {
+  ssr: false,
+});
 
 const DashboardComponent = () => {
   return (
-    <main className="h-screen flex justify-between">
-      <DashboardNavigation />
+    <section className="dashboard-component">
       <DashboardContainer />
       <ProfileDisplayer />
-    </main>
+    </section>
   );
 };
 export default DashboardComponent;

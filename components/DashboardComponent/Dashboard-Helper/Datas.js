@@ -5,124 +5,23 @@ import Profile3 from "../../../public/pictures&svgs/usersprofile/profile6.jpeg";
 export const datas = [
   {
     title: "Medication Reminder App",
-    subtitle:
-      "An application that enables people to stay on track of their medication.",
-    startDate: new Date(2022, 2, 2),
-    endDate: new Date(2023, 5, 10),
-    taskLengthInfo: {
-      taskLength: 6,
-      taskCompleted: 6,
-    },
-    teamMembers: [
+    description: "An application that enables people to stay on track of their medication.",
+    startDate: "2023-08-25T10:00:00Z",
+    endDate: "2023-09-15T18:00:00Z",
+    taskLength: 6,
+    taskCompleted: 4,
+    groupMembers: [
       {
-        name: "John Doe",
-        Image: Profile1,
+        name: "Alice Johnson",
+        userId: "user-789",
+        emailAdress: "alice@example.com",
+        profilePicture: Profile1,
       },
       {
-        name: "still finin",
-        Image: Profile2,
-      },
-      {
-        name: "lollll Doe",
-        Image: Profile3,
-      },
-    ],
-  },
-  {
-    title: "Database project 1",
-    subtitle: "An academic group database project using oracle sql.",
-    startDate: new Date(2023, 6, 14),
-    endDate: new Date(2023, 9, 20),
-    taskLengthInfo: {
-      taskLength: 6,
-      taskCompleted: 0,
-    },
-    teamMembers: [
-      {
-        name: "John Doe",
-        Image: Profile1,
-      },
-      {
-        name: "still finin",
-        Image: Profile2,
-      },
-      {
-        name: "lollll Doe",
-        Image: Profile3,
-      },
-    ],
-  },
-  {
-    title: "Weather Application",
-    subtitle:
-      "An application that display the current weather and city information.",
-    startDate: new Date(2023, 8, 10),
-    endDate: new Date(2023, 10, 12),
-    taskLengthInfo: {
-      taskLength: 6,
-      taskCompleted: 0,
-    },
-    teamMembers: [
-      {
-        name: "John Doe",
-        Image: Profile1,
-      },
-      {
-        name: "still finin",
-        Image: Profile2,
-      },
-      {
-        name: "lollll Doe",
-        Image: Profile3,
-      },
-    ],
-  },
-  {
-    title: "School management system",
-    subtitle: "This application is a school system app.",
-    startDate: new Date(2023, 0, 10),
-    endDate: new Date(2023, 0, 20),
-    taskLengthInfo: {
-      taskLength: 6,
-      taskCompleted: 3,
-    },
-    teamMembers: [
-      {
-        name: "John Doe",
-        Image: Profile1,
-      },
-      {
-        name: "still finin",
-        Image: Profile2,
-      },
-      {
-        name: "lollll Doe",
-        Image: Profile3,
-      },
-    ],
-  },
-  {
-    title: "Calculator",
-    subtitle:
-      "This was my first javascript project. it was such a beautiful calculator.",
-    startDate: new Date(2023, 3, 10),
-    endDate: new Date(2023, 3, 20),
-    taskLengthInfo: {
-      taskLength: 6,
-      taskCompleted: 6,
-    },
-    teamMembers: [
-      {
-        name: "John Doe",
-        Image: Profile1,
-      },
-      {
-        name: "still finin",
-        Image: Profile2,
-      },
-      {
-        name: "lollll Doe",
-        Image: Profile3,
+        name: "Bob Smith",
+        userId: "user-456",
+        emailAdress: "bob@example.com",
+        profilePicture: Profile2,
       },
     ],
   },

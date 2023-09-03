@@ -1,6 +1,7 @@
 import "tailwindcss/tailwind.css";
 import "../styles/globals.css";
 import { useEffect } from "react";
+import { StoreContextProvider } from "@/store/mystore";
 
 export default function App({ Component, pageProps }) {
   useEffect(() => {
@@ -12,5 +13,9 @@ export default function App({ Component, pageProps }) {
       document.documentElement.style.scrollBehavior = "auto";
     };
   }, []);
-  return <Component {...pageProps} />;
+  return (
+    <StoreContextProvider>
+      <Component {...pageProps} />
+    </StoreContextProvider>
+  );
 }
