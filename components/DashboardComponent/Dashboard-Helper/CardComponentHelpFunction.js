@@ -1,6 +1,13 @@
 export const dateConverter = (dateString) => {
   const originalDate = new Date(dateString);
-  const newDate = new Date(originalDate.getUTCFullYear(), originalDate.getUTCMonth(), originalDate.getUTCDate());
+  const newDate = new Date(
+    originalDate.getUTCFullYear(),
+    originalDate.getUTCMonth(),
+    originalDate.getUTCDate(),
+    originalDate.getUTCHours(),
+    originalDate.getUTCMinutes(),
+    originalDate.getUTCSeconds()
+  );
   return newDate;
 };
 
@@ -40,7 +47,7 @@ export const statusChecker = (taskLength, taskCompleted, previousStatus) => {
 };
 
 export const projectDateStatusChecker = (startDate, endDate) => {
-  endDate.setHours(23, 59, 59);
+  endDate.setHours(endDate.getHours(), endDate.getMinutes(), endDate.getSeconds());
   const currentDate = new Date();
   currentDate.setHours(currentDate.getHours(), currentDate.getMinutes(), currentDate.getSeconds());
   const milsecCur = currentDate.getTime();

@@ -243,3 +243,35 @@ footer {
 input[type="file"] {
   display: none;
 }
+
+.moveRightAnim {
+  animation: moveLeftAnimation 0.2s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+.moveLeftAnim {
+  animation: moveRightAnimation 0.2s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+@keyframes moveRightAnimation {
+  0% {
+    justify-content: flex-start;
+    display: none;
+  }
+
+  100% {
+    justify-content: flex-end;
+    display: block;
+  }
+}
+@keyframes moveLeftAnimation {
+  0% {
+    justify-content: flex-end;
+    display: none;
+  }
+
+  100% {
+    justify-content: flex-start;
+    display: block;
+  }
+}

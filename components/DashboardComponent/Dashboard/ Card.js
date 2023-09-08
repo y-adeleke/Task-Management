@@ -1,5 +1,6 @@
 import { AiOutlineMore } from "react-icons/ai";
 import { AiOutlineStar } from "react-icons/ai";
+import { AiOutlineClockCircle } from "react-icons/ai";
 import { BiTask } from "react-icons/bi";
 import Image from "next/image";
 import { statusChecker } from "@/components/DashboardComponent/Dashboard-Helper/CardComponentHelpFunction";
@@ -19,11 +20,14 @@ const Card = (props) => {
     <div className={`p-4 py-6 bg-white rounded-2xl shadow-md slide-in relative flex flex-col justify-between ${props.editIconClicked ? "z-20" : "z-0"}`}>
       <div className="flex justify-between">
         <button
-          className={`p-1 rounded-md text-xs capitalize ${status == "completed" && "bg-green-100 text-green-800"} ${status == "to-do" && "bg-sky-100 text-sky-800"} ${
+          className={`p-1  rounded-md flex items-center text-xs capitalize ${status == "completed" && "bg-green-100 text-green-800"} ${status == "to-do" && "bg-sky-100 text-sky-800"} ${
             status == "in-progress" && "bg-yellow-100 text-Yellow-800"
           } ${status == "overdue" && "bg-red-100 text-red-800"} `}>
-          {status}
-          <span className="font-semibold italic"> ({currentDateStatus})</span>
+          <span>{status}</span>
+          <span className="font-semibold italic flex items-center">
+            &nbsp; ( <AiOutlineClockCircle />
+            {currentDateStatus})
+          </span>
         </button>
 
         <div className="p-2 rounded-full bg-gray-100 " onClick={props.optionOnClicked}>

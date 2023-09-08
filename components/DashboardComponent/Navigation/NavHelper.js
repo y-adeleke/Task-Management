@@ -3,7 +3,6 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 import { BsChatSquareQuote } from "react-icons/bs";
 import { BsCalendarCheck } from "react-icons/bs";
 import { IoSettingsOutline } from "react-icons/io5";
-import { MdOutlineDarkMode } from "react-icons/md";
 
 export const navItems = [
   {
@@ -25,11 +24,6 @@ export const navItems = [
     icon: BsCalendarCheck,
     name: "Calendar",
     href: "/user/calendar",
-  },
-  {
-    icon: MdOutlineDarkMode,
-    name: "Dark Mode",
-    href: "",
   },
   {
     icon: IoSettingsOutline,

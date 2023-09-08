@@ -19,7 +19,7 @@ const Chat = (props) => {
       messageData.id = `chat-${rand}`;
       messageData.name = curUser.name;
       messageData.userId = curUser.userId;
-
+      //get the scroll height
       ctx.updateChats("push-to-chat", chats.projectId, messageData);
     },
     [ctx, curUser, chats]
@@ -27,9 +27,13 @@ const Chat = (props) => {
 
   useEffect(() => {
     if (chatContainerRef.current) {
-      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+      if (chats?.newMessage > 0) {
+        //
+      } else {
+        chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+      }
     }
-  }, [sendMessage]);
+  }, [sendMessage, chats?.newMessage]);
 
   return (
     <section className="bg-white font-montserrat relative">
@@ -59,10 +63,7 @@ const Chat = (props) => {
 export default Chat;
 
 // next steps
-//change taskoutine to userdata --done✅
-//change profile --done✅
-//test functionality by populating data --done✅
-//make sure the last text is shown -- done✅
-//when user hits send button...push the data to the specific group chat array and re-load chats -- done✅
-//implement image send. -- done✅
+
+//scroll height---
+//if user sends a message? the scroll height should be current scrollheight...however if a user recieves message, the scroll height should equal to the previous scrollheight(for every message, you will save the scroll height)--the moment the user leaves the chat page --the scroll height should be saveda as well)
 //implement search chat functionality.

@@ -1,8 +1,4 @@
 import Link from "next/link";
-import { AiOutlineMore } from "react-icons/ai";
-import { FcParallelTasks } from "react-icons/fc";
-import { AiOutlineRight } from "react-icons/ai";
-import { AiOutlineLeft } from "react-icons/ai";
 import profile from "../../../public/pictures&svgs/usersprofile/profile10.jpeg";
 import Image from "next/image";
 import { useState, useEffect } from "react";
@@ -10,9 +6,9 @@ import PopupNav from "@/General-Helper/PopupNav";
 import { ClickDocument } from "@/General-Helper/ClickDocument";
 import { navItems } from "./NavHelper";
 import { useRouter } from "next/router";
+import ThemeToggle from "./ThemeToggle";
 
 const DashboardNavigation = (props) => {
-  const [openNavName, setOpenNavName] = useState(false);
   const [popupActive, setPopupActive] = useState(false);
   const router = useRouter();
   const { asPath } = router;
@@ -59,6 +55,7 @@ const DashboardNavigation = (props) => {
                 <span className="small-text slide-in text-gray-300">{navItem.name}</span>
               </div>
             ))}
+            <ThemeToggle />
             {/*end of nav item */}
           </div>
         </div>
@@ -81,7 +78,7 @@ const DashboardNavigation = (props) => {
           />
 
           {popupActive && (
-            <div className={`absolute ${openNavName && "-right-1/2"} bottom-10 z-50 overflow-visible`}>
+            <div className={`absolute bottom-10 z-50 overflow-visible`}>
               <PopupNav options={[{ option: "edit profile" }, { option: "sign out" }]} />
             </div>
           )}
@@ -93,3 +90,5 @@ const DashboardNavigation = (props) => {
   );
 };
 export default DashboardNavigation;
+//implement dark mode by toggling.
+//re-implement time by allowing user to enter the time of start and end of thier project and change logic in calculating days
