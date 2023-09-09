@@ -1,4 +1,4 @@
 const Day = () => {
-  return;
+  return <main></main>;
 };
 export default Day;
