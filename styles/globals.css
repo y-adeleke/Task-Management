@@ -210,6 +210,9 @@ footer {
 .h-chatList {
   height: calc(100vh - (48px + 24px + 20px + 8px));
 }
+.after-nav-width {
+  width: calc(100vw - 96px);
+}
 .w-chatContainer {
   width: calc(100vw - 96px);
   display: grid;

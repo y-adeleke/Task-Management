@@ -3,11 +3,12 @@ import DashboardNavigation from "@/components/DashboardComponent/Navigation/Dash
 import { useState, useEffect, useRef } from "react";
 import Notification from "@/components/DashboardComponent/Notification/Notification";
 import ChatsComponent from "@/components/DashboardComponent/ChatsComponent/ChatComponent";
+import Calendar from "@/components/DashboardComponent/Calendar/Calendar";
 
 const componentMap = {
   dashboard: <DashboardComponent />,
   chats: <ChatsComponent />,
-  teams: <p>This a team page</p>,
+  calendar: <Calendar />,
 };
 
 const DashboardSection = ({ componentData }) => {
@@ -43,6 +44,7 @@ export async function getStaticPaths() {
     { params: { sections: "chats" } },
     { params: { sections: "dashboard" } },
     { params: { sections: "teams" } },
+    { params: { sections: "calendar" } },
     // Add more paths as needed based on your use case
   ];
 
