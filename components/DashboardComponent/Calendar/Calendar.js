@@ -2,6 +2,7 @@ import { AiFillCaretRight } from "react-icons/ai";
 import { AiFillCaretLeft } from "react-icons/ai";
 import { generateTimeSlots } from "./Helper";
 import { generateSchedule } from "./Helper";
+import { generateDates } from "./Helper";
 import { useState, useContext } from "react";
 import StoreContext from "@/store/mystore";
 
@@ -16,35 +17,22 @@ const Calendar = () => {
 
   function getInitialDates() {
     const currentDate = new Date();
-    const initialDates = [];
-    // Calculate the previous and next dates from the current date.
-    for (let i = -3; i <= 3; i++) {
-      const date = new Date(currentDate);
-      date.setDate(currentDate.getDate() + i);
-      initialDates.push(date);
-    }
-    return initialDates;
+    currentDate.setDate(currentDate.getDate() - 3);
+    return generateDates(currentDate);
   }
 
   function handleRightClick() {
-    const [lastItem] = dates.slice(-1); // Using destructuring to get the last date in the array
-    currentDate.setDate(lastItem.getDate() + 1);
-    setDates((prev) => {
-      const prevArr = [...prev];
-      prevArr.shift();
-      return [...prevArr, currentDate];
-    });
+    const [firstItem] = dates.slice(0); // Using destructuring to get the last date in the array
+    const nextDateCal = new Date(firstItem);
+    nextDateCal.setDate(nextDateCal.getDate() + 1);
+    setDates(generateDates(nextDateCal));
   }
 
   function handleLeftClick() {
-    const currentDate = new Date();
     const [firstItem] = dates.slice(0); // Using destructuring to get the last date in the array
-    currentDate.setDate(firstItem.getDate() - 1);
-    setDates((prev) => {
-      const prevArr = [...prev];
-      prevArr.pop();
-      return [currentDate, ...prevArr];
-    });
+    const nextDateCal = new Date(firstItem);
+    nextDateCal.setDate(nextDateCal.getDate() - 1);
+    setDates(generateDates(nextDateCal));
   }
 
   return (

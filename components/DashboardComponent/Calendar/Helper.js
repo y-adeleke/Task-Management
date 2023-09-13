@@ -1,4 +1,18 @@
 import { AiOutlineClockCircle } from "react-icons/ai";
+import { dateConverter } from "../Dashboard-Helper/CardComponentHelpFunction";
+
+////create dates
+export function generateDates(cstdate) {
+  const nextInitialDates = [];
+  // Calculate the previous and next dates from the current date.
+  for (let i = 0; i < 7; i++) {
+    const date = new Date(cstdate);
+    date.setDate(date.getDate() + i);
+    //console.log(date);
+    nextInitialDates.push(date);
+  }
+  return nextInitialDates;
+}
 
 ////Generate time slot///////
 export function generateTimeSlots() {
@@ -22,14 +36,19 @@ export function generateTimeSlots() {
   return timeSlots;
 }
 
+function isDateMatchFunc(comparingDate, date) {
+  const isDateMatch = comparingDate.getFullYear() === date.getFullYear() && comparingDate.getMonth() === date.getMonth() && comparingDate.getDate() === date.getDate();
+  return isDateMatch;
+}
+
 ///////////////// Schdeule ///////////////////
 export function generateSchedule(date, projects) {
+  //filter every project that matches the current date
   const correspondingDateProjects = projects?.filter((project) => {
-    const convertedStartDate = new Date(project.startDate);
-    const convertedEndDate = new Date(project.endDate);
-    const isStartDateMatch = convertedStartDate.getFullYear() === date.getFullYear() && convertedStartDate.getMonth() === date.getMonth() && convertedStartDate.getDate() === date.getDate();
-    const isEndDateMatch = convertedEndDate.getFullYear() === date.getFullYear() && convertedEndDate.getMonth() === date.getMonth() && convertedEndDate.getDate() === date.getDate();
-
+    const convertedStartDate = dateConverter(project.startDate);
+    const convertedEndDate = dateConverter(project.endDate);
+    const isStartDateMatch = isDateMatchFunc(convertedStartDate, date);
+    const isEndDateMatch = isDateMatchFunc(convertedEndDate, date);
     return isStartDateMatch || isEndDateMatch;
   });
 
@@ -45,36 +64,36 @@ export function generateSchedule(date, projects) {
       </h1>
     </div>
   );
+
+  //generate schdeule for all hours on the day
   for (let hour = 0; hour <= 23; hour++) {
-    const info = {
-      time: "",
-      type: "",
-      title: "",
-    };
+    let title = "";
+    let type = "";
+
     correspondingDateProjects.forEach((element) => {
-      const convertedStartDate = new Date(element.startDate);
-      const convertedEndDate = new Date(element.endDate);
-      const isStartDateMatch = convertedStartDate.getFullYear() === date.getFullYear() && convertedStartDate.getMonth() === date.getMonth() && convertedStartDate.getDate() === date.getDate();
-      const isEndDateMatch = convertedEndDate.getFullYear() === date.getFullYear() && convertedEndDate.getMonth() === date.getMonth() && convertedEndDate.getDate() === date.getDate();
+      console.log(element.startDate, "before converting");
+      const convertedStartDate = dateConverter(element.startDate);
+      console.log(convertedStartDate, "after converting");
+      const convertedEndDate = dateConverter(element.endDate);
+      const isStartDateMatch = isDateMatchFunc(convertedStartDate, date);
+      const isEndDateMatch = isDateMatchFunc(convertedEndDate, date);
 
       if (isStartDateMatch && convertedStartDate.getHours().toString() == hour.toString()) {
-        info.time = convertedStartDate.getHours();
-        info.type = "start";
-        info.title = element.title;
+        type = "start";
+        title = element.title;
       }
       if (isEndDateMatch && convertedStartDate.getHours().toString() == hour.toString()) {
-        info.time = convertedEndDate.getHours();
-        info.type = "end";
-        info.title = element.title;
+        type = "end";
+        title = element.title;
       }
     });
     scheduleSlots.push(
       <div
-        className={`min-h-[40px] border-b border-b-gray-200 rounded-lg transparant flex items-center justify-start w-40 px-2 ${info.type == "start" && "bg-green-200 cursor-pointer"} ${
-          info.type == "end" && "bg-red-200 cursor-pointer"
+        className={`min-h-[40px] border-b border-b-gray-200 rounded-lg transparant flex items-center justify-start w-40 px-2 ${type == "start" && "bg-green-200 cursor-pointer"} ${
+          type == "end" && "bg-red-200 cursor-pointer"
         }`}
         key={hour}>
-        <div className="overflow-hidden tracking-wide whitespace-nowrap w-max text-ellipsis font-spartan">{info.title ? info.title : ""}</div>
+        <div className="overflow-hidden tracking-wide whitespace-nowrap w-max text-ellipsis font-spartan">{title ? title : ""}</div>
       </div>
     );
   }
